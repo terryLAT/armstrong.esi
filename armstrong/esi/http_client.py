@@ -5,7 +5,7 @@ we've copied over the file since django.test is unlikely to see the same
 scrutiny or stability as modules intended for use in production code.
 '''
 import urllib
-from urlparse import urlparse, urlunparse, urlsplit
+from urllib.parse import urlparse, urlunparse, urlsplit
 import sys
 import os
 import re
