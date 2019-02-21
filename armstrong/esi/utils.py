@@ -1,4 +1,4 @@
-from cStringIO import StringIO
+from io import StringIO
 from email.utils import parsedate
 import gzip
 import logging
