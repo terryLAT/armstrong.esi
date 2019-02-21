@@ -10,7 +10,7 @@ import sys
 import os
 import re
 import mimetypes
-from Cookie import SimpleCookie
+from http.cookies import SimpleCookie
 from io import StringIO
 
 from django.conf import settings
