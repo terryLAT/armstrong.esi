@@ -4,6 +4,7 @@ import re
 from django.urls import resolve
 from django.core.cache import cache
 from django.http import HttpResponse
+from django.utils.deprecation import MiddlewareMixin
 
 from .utils import replace_esi_tags, gzip_response_content, \
     gunzip_response_content
@@ -11,7 +12,7 @@ from .utils import replace_esi_tags, gzip_response_content, \
 
 esi_tag_re = re.compile(r'<esi:include src="(?P<url>[^"]+?)"\s*/>', re.I)
 
-class IncludeEsiMiddleware(object):
+class IncludeEsiMiddleware(MiddlewareMixin):
     def process_response(self, request, response):
         esi_status = getattr(request, '_esi', {'used': False})
         if not esi_status['used']:
