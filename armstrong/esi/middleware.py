@@ -1,7 +1,7 @@
 import hashlib
 import re
 
-from django.core.urlresolvers import resolve
+from django.urls import resolve
 from django.core.cache import cache
 from django.http import HttpResponse
 
