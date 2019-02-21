@@ -21,7 +21,7 @@ from django.http import SimpleCookie, HttpRequest, QueryDict
 from django.template import TemplateDoesNotExist
 from django.utils.encoding import smart_str
 from django.utils.http import urlencode
-from django.utils.importlib import import_module
+from importlib import import_module
 from django.utils.itercompat import is_iterable
 from django.db import transaction, close_connection
 
