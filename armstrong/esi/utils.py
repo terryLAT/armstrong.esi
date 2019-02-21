@@ -127,7 +127,7 @@ def replace_esi_tags(request, response):
     }
 
     replacement_offset = 0
-    for match in esi_tag_re.finditer(response.content):
+    for match in esi_tag_re.finditer(response.content.decode('utf-8')):
         url = build_full_fragment_url(request, match.group('url'))
 
         if response.status_code == 200 or process_errors:
