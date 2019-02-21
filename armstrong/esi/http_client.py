@@ -5,7 +5,7 @@ we've copied over the file since django.test is unlikely to see the same
 scrutiny or stability as modules intended for use in production code.
 '''
 import urllib
-from urllib.parse import urlparse, urlunparse, urlsplit
+from urllib.parse import urlparse, urlunparse, urlsplit, unquote
 import sys
 import os
 import re
@@ -218,7 +218,7 @@ class Client(object):
         parsed = urlparse(path)
         r = {
             'CONTENT_TYPE':    'text/html; charset=utf-8',
-            'PATH_INFO':       urllib.unquote(parsed[2]),
+            'PATH_INFO':       unquote(parsed[2]),
             'QUERY_STRING':    urlencode(data, doseq=True) or parsed[4],
             'REQUEST_METHOD': 'GET',
             'wsgi.input':      FakePayload('')
