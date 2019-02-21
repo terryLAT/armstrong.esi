@@ -4,7 +4,7 @@ import gzip
 import logging
 import re
 import time
-from urlparse import urljoin
+from urllib.parse import urljoin
 
 from django.conf import settings
 from django.http import HttpResponse
