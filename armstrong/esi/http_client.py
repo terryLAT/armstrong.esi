@@ -11,10 +11,7 @@ import os
 import re
 import mimetypes
 from Cookie import SimpleCookie
-try:
-    from cStringIO import StringIO
-except ImportError:
-    from StringIO import StringIO
+from io import StringIO
 
 from django.conf import settings
 from django.core.handlers.base import BaseHandler
