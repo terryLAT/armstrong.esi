@@ -60,7 +60,7 @@ class LocalHandler(BaseHandler):
 
         # Set up middleware if needed. We couldn't do this earlier, because
         # settings weren't available.
-        if self._request_middleware is None:
+        if self._middleware_chain is None:
             self.load_middleware()
 
         request = WSGIRequest(environ)
