@@ -128,6 +128,7 @@ def replace_esi_tags(request, response):
 
     replacement_offset = 0
     for match in esi_tag_re.finditer(response.content.decode('utf-8')):
+
         url = build_full_fragment_url(request, match.group('url'))
 
         if response.status_code == 200 or process_errors:
@@ -148,8 +149,11 @@ def replace_esi_tags(request, response):
 
         start = match.start() + replacement_offset
         end = match.end() + replacement_offset
-        response.content = '%s%s%s' % (response.content[:start],
-            fragment.content, response.content[end:])
+
+        content_str = response.content.decode('utf-8')
+
+        response.content = content_str.replace(match[0], fragment.content.decode('utf-8'))
+
         replacement_offset += len(fragment.content) - len(match.group(0))
 
         for header in HEADERS_TO_MERGE:
