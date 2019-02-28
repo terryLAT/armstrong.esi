@@ -2,6 +2,8 @@ armstrong.esi
 =============
 Django application for handling `edge side include (ESI)`_
 
+NOTE: forked and edited for compatability with Python 3+ and Django 2.7.1
+
 .. _edge side include (ESI): http://en.wikipedia.org/wiki/Edge_Side_Includes
 
 Usage
